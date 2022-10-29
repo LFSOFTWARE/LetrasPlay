@@ -7,6 +7,7 @@ import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 const Discover = () => {
   const dispatch = useDispatch();
+
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetTopChartsQuery();
 
@@ -17,18 +18,6 @@ const Discover = () => {
   if (error) {
     return <Error />;
   }
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2Nzk0MTc3LCJpYXQiOjE2NjY3OTM4NzcsImp0aSI6ImY2YjJjODA2NWVlOTRlMDI4NDBiZWZkMWFiMTlkMGY4IiwidXNlcl9pZCI6MX0.C7xnSGPjTtypOIvG8RQiWKsksad4EHfPE9iCwwKl_kA';
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Access-Control-Allow-Origin': '*',
-    },
-  };
-  axios.get('http://20.185.227.118/api/dge/petal-ranking', config).then((res) => {
-    console.log(res);
-  }).catch((err) => {
-    console.log(err);
-  });
   return (
     <div className="flex flex-col">
       <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
