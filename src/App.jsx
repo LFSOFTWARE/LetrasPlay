@@ -6,7 +6,7 @@ import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, To
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
-
+  console.log(' import.meta.env.REACT_APP_API_KEY_SHAZAN', import.meta.env.REACT_APP_API_KEY_SHAZAN);
   return (
     <div className="relative flex">
       <Sidebar />
